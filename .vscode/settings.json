@@ -1,0 +1,18 @@
+// Place your settings in this file to overwrite default and user settings.
+{
+    "files.exclude": {
+        "**/.git": true,
+        "**/.svn": true,
+        "**/.hg": true,
+        "**/.DS_Store": true,
+        "platforms":true,
+        "node_modules":true,
+        "**/*.js":true,
+        "**/*.js.map":true,
+        "hooks":true,
+        "references.d.ts":true,
+        "**/package.json":true,
+        "**/LICENSE":true,
+        "tsconfig.json":true
+    }
+}

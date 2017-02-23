@@ -1,0 +1,41 @@
+<Page xmlns="http://schemas.nativescript.org/tns.xsd" 
+      loaded="pageLoaded">
+      
+      <GridLayout rows="auto, *">
+        <!-- Header -->
+        <StackLayout cssClass="page-header">
+            <Label text="Header" cssClass="page-title bold"  horizontalAlignment="center" margin="15" />
+        </StackLayout>
+
+        <!-- Sessions Views -->
+        <GridLayout  rows="auto, *" row="1">
+          <ListView items="{{ sessions }}" row="1">
+            <ListView.itemTemplate>
+               <GridLayout columns="auto, *" >
+               
+                  <GridLayout columns="auto" 
+                        rows="auto" 
+                        cssClass="favourite-wrap"
+                        >
+                   
+                    <Image id="imgFav" 
+                            tap="toggleFavorite"
+                            stretch="none" 
+                            cssClass="icon-image" 
+                            src="{{ favorite ? 'res://ic_add_to_fav' : 'res://ic_add_to_fav' }}" />
+                  
+                  </GridLayout>
+               
+                  <StackLayout col="1">
+                    <Label text="{{ title }}" textWrap="true" cssClass="info-bigger" />
+                    <Label text="{{ room }}" cssClass="info-orange" />
+                  </StackLayout> 
+
+                  <!--<Button col="2" text="TAP" tap="toggleFavorite" />-->
+               </GridLayout>
+            </ListView.itemTemplate>
+          </ListView>
+        </GridLayout>
+        
+    </GridLayout>
+</Page>

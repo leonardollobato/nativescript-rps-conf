@@ -1,0 +1,8 @@
+"use strict";
+function onTap(args) {
+    var button = args.object;
+    button.text = "I was tapped";
+    console.log('button was tapped');
+}
+exports.onTap = onTap;
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoibWFpbi1wYWdlLmpzIiwic291cmNlUm9vdCI6IiIsInNvdXJjZXMiOlsibWFpbi1wYWdlLnRzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiI7QUFBQSxlQUFzQixJQUFJO0lBQ3RCLElBQUksTUFBTSxHQUFHLElBQUksQ0FBQyxNQUFNLENBQUM7SUFFekIsTUFBTSxDQUFDLElBQUksR0FBRyxjQUFjLENBQUM7SUFDN0IsT0FBTyxDQUFDLEdBQUcsQ0FBQyxtQkFBbUIsQ0FBQyxDQUFDO0FBQ3JDLENBQUM7QUFMRCxzQkFLQyIsInNvdXJjZXNDb250ZW50IjpbImV4cG9ydCBmdW5jdGlvbiBvblRhcChhcmdzKXtcbiAgICB2YXIgYnV0dG9uID0gYXJncy5vYmplY3Q7XG5cbiAgICBidXR0b24udGV4dCA9IFwiSSB3YXMgdGFwcGVkXCI7XG4gICAgY29uc29sZS5sb2coJ2J1dHRvbiB3YXMgdGFwcGVkJyk7XG59Il19
