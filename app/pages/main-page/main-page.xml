@@ -13,25 +13,15 @@
             <ListView.itemTemplate>
                <GridLayout columns="auto, *" >
                
-                  <GridLayout columns="auto" 
-                        rows="auto" 
-                        cssClass="favourite-wrap"
-                        >
-                   
-                    <Image id="imgFav" 
-                            tap="toggleFavorite"
-                            stretch="none" 
-                            cssClass="icon-image" 
-                            src="{{ favorite ? 'res://ic_add_to_fav' : 'res://ic_add_to_fav' }}" />
-                  
+                  <GridLayout columns="auto" rows="auto" cssClass="favourite-wrap"
+                              tap="toggleFavorite">
+                    <Image id="imgFav" stretch="none" cssClass="icon-image" src="{{ favorite ? 'res://ic_add_to_fav_1' : 'res://ic_add_to_fav' }}" />
                   </GridLayout>
                
                   <StackLayout col="1">
                     <Label text="{{ title }}" textWrap="true" cssClass="info-bigger" />
                     <Label text="{{ room }}" cssClass="info-orange" />
                   </StackLayout> 
-
-                  <!--<Button col="2" text="TAP" tap="toggleFavorite" />-->
                </GridLayout>
             </ListView.itemTemplate>
           </ListView>

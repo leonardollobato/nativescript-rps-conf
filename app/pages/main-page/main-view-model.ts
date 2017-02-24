@@ -1,21 +1,21 @@
 import { Observable } from 'data/observable';
-import { Session } from '../../shared/interfaces';
-import { SessionViewModel } from '../session-page/session-view-model';
+import { Session } from '../../shared/interfaces'
+import { SessionViewModel } from '../session-page/session-view-model'; 
 
 export class MainViewModel extends Observable {
-    private _sessions: Array<Session> = new Array<Session>();
-    private _allSessions:Array<SessionViewModel> = new Array<SessionViewModel>();
-
+    private _tempSessions: Array<Session> = new Array<Session>();
+    private _allSessions: Array<SessionViewModel> = new Array<SessionViewModel>();
+    
     constructor() {
         super();
     }
-
-    get sessions(): Array<SessionViewModel>{
+    
+    get sessions(): Array<SessionViewModel> {
         return this._allSessions;
-    }
-
+    } 
+    
     public init() {
-        var sessions: Array<Session> = [
+        var sessionArray: Array<Session> = [
             {
                 id: '1',
                 title: 'session 1',
@@ -29,7 +29,7 @@ export class MainViewModel extends Observable {
                     theme: ''
                 },
                 speakers: [],
-                description: 'session 1 deesc',
+                description: 'session 1 desc',
                 descriptionShort: 'session 1 short desc',
                 calendarEventId: '',
                 isBreak: false
@@ -37,8 +37,26 @@ export class MainViewModel extends Observable {
             {
                 id: '2',
                 title: 'session 2',
-                start: '2016-10-04T09:30:00Z',
-                end: '2016-10-04T11:45:00Z',
+                start: '2016-10-03T13:00:00Z',
+                end: '2016-10-03T14:00:00Z',
+                room: 'room1',
+                roomInfo: {
+                    roomId: 'room1',
+                    name: 'myroom1',
+                    url: '',
+                    theme: ''
+                },
+                speakers: [],
+                description: 'session 2 desc',
+                descriptionShort: 'session 2 short desc',
+                calendarEventId: '',
+                isBreak: true
+            },
+            {
+                id: '3',
+                title: 'session 3',
+                start: '2016-10-03T14:00:00Z',
+                end: '2016-10-03T15:00:00Z',
                 room: 'room2',
                 roomInfo: {
                     roomId: 'room2',
@@ -47,49 +65,16 @@ export class MainViewModel extends Observable {
                     theme: ''
                 },
                 speakers: [],
-                description: 'session 2 deesc',
-                descriptionShort: 'session 2 short desc',
-                calendarEventId: '',
-                isBreak: true
-            },
-            {
-                id: '3',
-                title: 'session 3',
-                start: '2016-10-05T19:20:00Z',
-                end: '2016-10-05T21:25:00Z',
-                room: 'room3',
-                roomInfo: {
-                    roomId: 'room3',
-                    name: 'myroom3',
-                    url: '',
-                    theme: ''
-                },
-                speakers: [],
-                description: 'session 3 deesc',
+                description: 'session 3 desc',
                 descriptionShort: 'session 3 short desc',
                 calendarEventId: '',
-                isBreak: true
-            },
-            {
-                id: '4',
-                title: 'session 4',
-                start: '2016-10-05T19:20:00Z',
-                end: '2016-10-05T21:25:00Z',
-                room: 'room4',
-                roomInfo: {
-                    roomId: 'room4',
-                    name: 'myroom4',
-                    url: '',
-                    theme: ''
-                },
-                speakers: [],
-                description: 'session 4 deesc',
-                descriptionShort: 'session 4 short desc',
-                calendarEventId: '',
-                isBreak: true
+                isBreak: false
             }
-        ]
-        sessions
-            .forEach((item) => this._allSessions.push(new SessionViewModel(item)));
+        ];
+        
+        for (var i = 0; i < sessionArray.length; i++) {
+            //this._tempSessions.push(sessionArray[i]);
+            this._allSessions.push(new SessionViewModel(sessionArray[i]));
+        }
     }
 }
