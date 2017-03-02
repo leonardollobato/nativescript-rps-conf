@@ -11,9 +11,9 @@
         <GridLayout  rows="auto, *" row="1">
           <ListView items="{{ sessions }}" row="1">
             <ListView.itemTemplate>
-               <GridLayout columns="auto, *" >
+               <GridLayout columns="auto, *" cssClass="{{ isBreak ? 'break-row' : 'list-view-row' }}">
                
-                  <GridLayout columns="auto" rows="auto" cssClass="favourite-wrap"
+                  <GridLayout visibility="{{ isBreak ? 'collapsed' : 'visible' }}" columns="auto" rows="auto" cssClass="favourite-wrap"
                               tap="toggleFavorite">
                     <Image id="imgFav" stretch="none" cssClass="icon-image" src="{{ favorite ? 'res://ic_add_to_fav_1' : 'res://ic_add_to_fav' }}" />
                   </GridLayout>

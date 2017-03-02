@@ -13,6 +13,7 @@
     }
   },
   "dependencies": {
+    "faker": "^4.1.0",
     "tns-core-modules": "2.5.1"
   },
   "devDependencies": {
