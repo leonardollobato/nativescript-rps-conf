@@ -1,7 +1,11 @@
 import { Page } from 'ui/page';
+import { EventData } from 'data/observable';
+import { Button } from 'ui/button';
+import { Label } from 'ui/label';
+import { ScrollView } from 'ui/scroll-view';
 import { SessionViewModel } from '../session-page/session-view-model';
 
-import * as fakeDataServiceModule from '../../service/fake-data-service';
+import * as fakeDataServiceModule from '../../services/fake-data-service';
 
 var vm: SessionViewModel;
 var page: Page;
@@ -12,6 +16,26 @@ export function pageNavigatingTo(args){
     var firstSession = loadFirstSessionViaFaker();
     vm = new SessionViewModel(firstSession);
     page.bindingContext = vm;
+}
+
+export function toggleFavorite(args){
+    vm.toggleFavorite();
+}
+
+export function toggleDescription(args: EventData) {
+    var btn = <Button>args.object;
+    var txtDesc = <Label>page.getViewById('txtDescription');
+    var scroll = <ScrollView>page.getViewById('scroll');
+
+    if (btn.text === 'MORE') {
+        btn.text = 'LESS';
+        txtDesc.text = vm.description;
+    }
+    else {
+        btn.text = 'MORE';
+        txtDesc.text = vm.descriptionShort;
+        scroll.scrollToVerticalOffset(0, false);
+    }
 }
 
 export function loadFirstSessionViaFaker<T>(){
